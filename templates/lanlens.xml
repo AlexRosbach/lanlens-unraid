@@ -4,14 +4,19 @@
   <Repository>alexrosbach/lanlens:latest</Repository>
   <Registry>https://hub.docker.com/r/alexrosbach/lanlens</Registry>
   <Network>host</Network>
+  <MyIP/>
+  <Shell>bash</Shell>
   <Privileged>false</Privileged>
   <Support>https://github.com/AlexRosbach/LanLens/issues</Support>
   <Project>https://github.com/AlexRosbach/LanLens</Project>
+  <ReadMe>https://raw.githubusercontent.com/AlexRosbach/lanlens-unraid/main/README.md</ReadMe>
   <Overview>LanLens is a self-hosted network discovery and documentation tool for home labs and small environments.</Overview>
-  <Category>Network:Management Productivity: Tools:</Category>
+  <Description>LanLens discovers, documents, and monitors local network devices. It is intended for home labs and small environments that need a self-hosted view of discovered devices, services, SNMP identity data, and CMDB/i-doit export metadata.</Description>
+  <Category>Network:Management Tools:Utilities</Category>
   <WebUI>http://[IP]:[PORT:7765]</WebUI>
   <TemplateURL>https://raw.githubusercontent.com/AlexRosbach/lanlens-unraid/main/templates/lanlens.xml</TemplateURL>
   <Icon>https://raw.githubusercontent.com/AlexRosbach/LanLens/main/frontend/public/logo.svg</Icon>
+  <Requires>Host networking plus NET_ADMIN and NET_RAW capabilities are required for local ARP/MAC discovery. Set a strong SECRET_KEY before first startup.</Requires>
   <ExtraParams>--cap-add=NET_ADMIN --cap-add=NET_RAW</ExtraParams>
   <PostArgs/>
   <CPUset/>
