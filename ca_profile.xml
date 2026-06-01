@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CommunityApplications>
+  <Profile>
+    LanLens Unraid templates for running the self-hosted LanLens network discovery and documentation tool on Unraid. Support, source code, and issue tracking are handled through the LanLens GitHub project.
+  </Profile>
+  <Icon>https://raw.githubusercontent.com/AlexRosbach/LanLens/main/frontend/public/logo.svg</Icon>
+  <WebPage>https://github.com/AlexRosbach/lanlens-unraid</WebPage>
+  <Forum>https://github.com/AlexRosbach/LanLens/issues</Forum>
+</CommunityApplications>
