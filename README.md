@@ -7,6 +7,7 @@ This repository contains only the Unraid Docker template metadata. The applicati
 ## Template
 
 - Template: [`templates/lanlens.xml`](templates/lanlens.xml)
+- Repository profile: [`ca_profile.xml`](ca_profile.xml)
 - Docker image: `alexrosbach/lanlens:latest`
 - Default Web UI port: `7765`
 - Appdata path: `/mnt/user/appdata/lanlens`
@@ -35,6 +36,10 @@ Use the official Unraid Community Applications submission portal:
 Repository XML help:
 
 <https://ca.unraid.net/submit/help/repository-xml>
+
+Repository profile XML help:
+
+<https://ca.unraid.net/submit/help/repository-info-xml>
 
 ## Support
 
