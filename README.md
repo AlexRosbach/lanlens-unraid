@@ -19,15 +19,11 @@ LanLens uses host networking because local ARP/MAC discovery needs raw network a
 
 The template intentionally uses `alexrosbach/lanlens:latest` so Unraid users receive the current LanLens Docker image through normal container updates.
 
-## Required Setup
+## First Startup
 
-Before starting the container, set a strong `SECRET_KEY` in the Unraid template.
+LanLens now starts without a manually supplied `SECRET_KEY`. On first startup, the container generates a strong key and stores it inside the persistent appdata volume at `/data/secret_key`.
 
-Generate one with:
-
-```bash
-python3 -c "import secrets; print(secrets.token_hex(32))"
-```
+Only set the optional `SECRET_KEY` template field when restoring or migrating an existing encrypted LanLens setup that must keep the same signing/encryption key.
 
 The default admin password is only intended for first startup. Change it after login.
 
