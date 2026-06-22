@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Container version="2">
+  <Name>MarketPlaceLens</Name>
+  <Repository>alexrosbach/marketplacelens:latest</Repository>
+  <Registry>https://hub.docker.com/r/alexrosbach/marketplacelens</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>bash</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/AlexRosbach/MarketPlaceLens/issues</Support>
+  <Project>https://github.com/AlexRosbach/MarketPlaceLens</Project>
+  <ReadMe>https://raw.githubusercontent.com/AlexRosbach/lanlens-unraid/main/README.md</ReadMe>
+  <Overview>MarketPlaceLens is a self-hosted Kleinanzeigen and marketplace watcher with recurring search jobs, review queues, watchlists, and optional AI-assisted buyer workflows.</Overview>
+  <Description>MarketPlaceLens runs recurring marketplace search jobs, collects matching listings, and gives you a local dashboard to review, hide, save, contact, and watch interesting items. It supports Kleinanzeigen-focused workflows, watchlists, notifications, and optional AI-assisted inquiry text and listing assessment features.</Description>
+  <Category>Productivity:Tools:Utilities</Category>
+  <WebUI>http://[IP]:[PORT:8091]</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/AlexRosbach/lanlens-unraid/main/templates/marketplacelens.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/AlexRosbach/MarketPlaceLens/main/app/static/assets/marketplacelens-logo.png</Icon>
+  <Requires>MarketPlaceLens is intended for private self-hosted use with marketplace URLs you are allowed to access. It does not bypass logins, CAPTCHA, bot protection, private APIs, rate limits, or platform access controls.</Requires>
+  <ExtraParams>--add-host=host.docker.internal:host-gateway</ExtraParams>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled/>
+
+  <Config Name="App Data" Target="/data" Default="/mnt/user/appdata/marketplacelens" Mode="rw" Description="Persistent MarketPlaceLens data, including SQLite database, settings, users, watchlists, notifications, and session secret." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/marketplacelens</Config>
+  <Config Name="Web UI Port" Target="8080" Default="8091" Mode="tcp" Description="Host port for the MarketPlaceLens Web UI." Type="Port" Display="always" Required="true" Mask="false">8091</Config>
+  <Config Name="Poll Enabled" Target="MARKETPLACELENS_POLL_ENABLED" Default="true" Mode="" Description="Enable recurring background polling for active marketplace jobs." Type="Variable" Display="always" Required="true" Mask="false">true</Config>
+  <Config Name="Default Poll Minutes" Target="MARKETPLACELENS_DEFAULT_POLL_MINUTES" Default="60" Mode="" Description="Default polling interval for new marketplace jobs, in minutes." Type="Variable" Display="always" Required="true" Mask="false">60</Config>
+  <Config Name="Minimum Poll Minutes" Target="MARKETPLACELENS_MIN_POLL_MINUTES" Default="30" Mode="" Description="Minimum allowed polling interval for marketplace jobs, in minutes." Type="Variable" Display="advanced" Required="true" Mask="false">30</Config>
+  <Config Name="User Agent" Target="MARKETPLACELENS_USER_AGENT" Default="MarketPlaceLens/0.4.1 (+self-hosted listing watcher)" Mode="" Description="HTTP User-Agent used by marketplace fetchers." Type="Variable" Display="advanced" Required="true" Mask="false">MarketPlaceLens/0.4.1 (+self-hosted listing watcher)</Config>
+  <Config Name="Admin Username" Target="MARKETPLACELENS_ADMIN_USERNAME" Default="admin" Mode="" Description="Optional bootstrap admin username. Used only when an admin password is supplied before first startup." Type="Variable" Display="advanced" Required="false" Mask="false">admin</Config>
+  <Config Name="Admin Password" Target="MARKETPLACELENS_ADMIN_PASSWORD" Default="" Mode="" Description="Optional bootstrap admin password for unattended first startup. Leave empty to use the guided Web UI setup." Type="Variable" Display="advanced" Required="false" Mask="true"/>
+  <Config Name="Session Secret" Target="MARKETPLACELENS_SESSION_SECRET" Default="" Mode="" Description="Optional fixed session secret for restores or migrations. Leave empty for normal first startup; MarketPlaceLens will generate and persist one in appdata." Type="Variable" Display="advanced" Required="false" Mask="true"/>
+  <Config Name="Telegram Bot Token" Target="TELEGRAM_BOT_TOKEN" Default="" Mode="" Description="Optional Telegram bot token for listing notifications. Can also be configured later in the UI." Type="Variable" Display="advanced" Required="false" Mask="true"/>
+  <Config Name="Telegram Chat ID" Target="TELEGRAM_CHAT_ID" Default="" Mode="" Description="Optional Telegram chat ID for listing notifications. Can also be configured later in the UI." Type="Variable" Display="advanced" Required="false" Mask="true"/>
+  <Config Name="Webhook URL" Target="MARKETPLACELENS_WEBHOOK_URL" Default="" Mode="" Description="Optional webhook URL for listing notifications. Can also be configured later in the UI." Type="Variable" Display="advanced" Required="false" Mask="true"/>
+  <Config Name="Timezone" Target="TZ" Default="UTC" Mode="" Description="Container timezone, for example Europe/Berlin." Type="Variable" Display="always" Required="false" Mask="false">UTC</Config>
+</Container>

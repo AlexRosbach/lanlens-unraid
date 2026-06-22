@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <CommunityApplications>
   <Profile>
-    LanLens Unraid templates for running the self-hosted LanLens network discovery and documentation tool on Unraid. Support, source code, and issue tracking are handled through the LanLens GitHub project.
+    Unraid Community Applications templates for AlexRosbach self-hosted apps, including LanLens network discovery and MarketPlaceLens Kleinanzeigen and marketplace search workflows. Support, source code, and issue tracking are handled through the linked GitHub projects.
   </Profile>
   <Icon>https://raw.githubusercontent.com/AlexRosbach/LanLens/main/frontend/public/logo.svg</Icon>
   <WebPage>https://github.com/AlexRosbach/lanlens-unraid</WebPage>
-  <Forum>https://github.com/AlexRosbach/LanLens/issues</Forum>
+  <Forum>https://github.com/AlexRosbach/lanlens-unraid/issues</Forum>
 </CommunityApplications>
