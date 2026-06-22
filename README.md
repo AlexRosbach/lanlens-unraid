@@ -1,13 +1,20 @@
-# LanLens Unraid Template
+# AlexRosbach Unraid Templates
 
-Unraid Community Applications template for [LanLens](https://github.com/AlexRosbach/LanLens).
+Unraid Community Applications templates for AlexRosbach self-hosted apps:
 
-This repository contains only the Unraid Docker template metadata. The application code and Docker image stay in the main LanLens repository and Docker image.
+- [LanLens](https://github.com/AlexRosbach/LanLens)
+- [MarketPlaceLens](https://github.com/AlexRosbach/MarketPlaceLens)
 
-## Template
+This repository contains only the Unraid Docker template metadata. Application code and Docker images stay in the main project repositories and Docker images.
 
-- Template: [`templates/lanlens.xml`](templates/lanlens.xml)
+## Templates
+
+- LanLens template: [`templates/lanlens.xml`](templates/lanlens.xml)
+- MarketPlaceLens template: [`templates/marketplacelens.xml`](templates/marketplacelens.xml)
 - Repository profile: [`ca_profile.xml`](ca_profile.xml)
+
+### LanLens
+
 - Docker image: `alexrosbach/lanlens:latest`
 - Template URL: <https://raw.githubusercontent.com/AlexRosbach/lanlens-unraid/main/templates/lanlens.xml>
 - Default Web UI port: `7765`
@@ -19,13 +26,33 @@ LanLens uses host networking because local ARP/MAC discovery needs raw network a
 
 The template intentionally uses `alexrosbach/lanlens:latest` so Unraid users receive the current LanLens Docker image through normal container updates.
 
+### MarketPlaceLens
+
+- Docker image: `alexrosbach/marketplacelens:latest`
+- Template URL: <https://raw.githubusercontent.com/AlexRosbach/lanlens-unraid/main/templates/marketplacelens.xml>
+- Default Web UI port: `8091`
+- Appdata path: `/mnt/user/appdata/marketplacelens`
+- Network mode: `bridge`
+
+MarketPlaceLens uses normal bridge networking. The template maps Unraid port `8091` to container port `8080` and adds `host.docker.internal` for advanced integrations that need to reach services on the Unraid host.
+
+The template intentionally uses `alexrosbach/marketplacelens:latest` so Unraid users receive the current stable MarketPlaceLens Docker image through normal container updates.
+
 ## First Startup
+
+### LanLens
 
 LanLens now starts without a manually supplied `SECRET_KEY`. On first startup, the container generates a strong key and stores it inside the persistent appdata volume at `/data/secret_key`.
 
 Only set the optional `SECRET_KEY` template field when restoring or migrating an existing encrypted LanLens setup that must keep the same signing/encryption key.
 
 The default admin password is only intended for first startup. Change it after login.
+
+### MarketPlaceLens
+
+On first startup, open the Web UI and create the first admin account. The `Admin Username` and `Admin Password` template fields are optional bootstrap helpers for unattended deployments; leave the password empty for the guided setup flow.
+
+MarketPlaceLens stores its SQLite database, settings, user data, session secret, and notification configuration in the persistent appdata volume.
 
 ## Community Applications Submission
 
@@ -34,8 +61,8 @@ Current repository readiness checklist:
 - Public GitHub repository
 - OSI-approved MIT license in `LICENSE`
 - Root-level `ca_profile.xml` with a non-empty `<Profile>`
-- One Docker app XML template in `templates/`
-- Template includes `<Repository>`, `<Name>`, `<Overview>`, `<Project>`, `<Support>`, `<ReadMe>`, `<Icon>`, `<Category>`, `<WebUI>`, and `<TemplateURL>`
+- Docker app XML templates in `templates/`
+- Each template includes `<Repository>`, `<Name>`, `<Overview>`, `<Project>`, `<Support>`, `<ReadMe>`, `<Icon>`, `<Category>`, `<WebUI>`, and `<TemplateURL>`
 - No plugin wrapper XML files, because this repository publishes only a Docker app template
 
 Use the official Unraid Community Applications submission portal:
@@ -60,5 +87,7 @@ Builder guide:
 
 ## Support
 
-- Project: <https://github.com/AlexRosbach/LanLens>
-- Issues: <https://github.com/AlexRosbach/LanLens/issues>
+- LanLens project: <https://github.com/AlexRosbach/LanLens>
+- LanLens issues: <https://github.com/AlexRosbach/LanLens/issues>
+- MarketPlaceLens project: <https://github.com/AlexRosbach/MarketPlaceLens>
+- MarketPlaceLens issues: <https://github.com/AlexRosbach/MarketPlaceLens/issues>
